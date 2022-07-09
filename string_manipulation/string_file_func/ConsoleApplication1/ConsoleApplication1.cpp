@@ -17,15 +17,32 @@ int strlen(char* s1)
     return count;
 }
 
+char* strrev(char *s1)
+{
+    int length = 0;
+    char temp;
+    while (s1[length] != '\0')
+        length++;
+
+    for (int i = 0; i < (length/2); i++)
+    {
+        temp = s1[length - 1 - i];
+        s1[length - 1 - i] = s1[i];
+        s1[i] = temp;
+    }
+
+    return s1;
+}
+
 #endif
 
 
 int main()
 {
-    int res = 0;
-    const char *str1 = "Suhel Mulla";
-    res = strlen((char *)str1);
-    printf("length = %d", res);
+    char str1[50] = "Suhel Mulla";
+
+    printf("\n Length = %d", strlen((char*)str1));
+    printf("\n Reversed string = %s", strrev((char *)str1));
 
     return 0;
 }
