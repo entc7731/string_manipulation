@@ -66,6 +66,38 @@ char* strcat(char* s1, char* s2)
     return s1;
 }
 
+char* strlwr(char* s1)
+{
+    int length = 0;
+
+    while (s1[length] != '\0')
+        length++;
+
+    for (int i = 0; i<length; i++)
+    {
+        if (s1[i] >= 'A' && s1[i] <= 'Z')
+            s1[i] = s1[i] + 32;
+    }
+
+    return s1;
+}
+
+char* strupr(char* s1)
+{
+    int length = 0;
+
+    while (s1[length] != '\0')
+        length++;
+
+    for (int i = 0; i < length; i++)
+    {
+        if (s1[i] >= 'a' && s1[i] <= 'z')
+            s1[i] = s1[i] - 32;
+    }
+
+    return s1;
+}
+
 char* strrev(char *s1)
 {
     int length = 0;
@@ -91,7 +123,7 @@ char* strrev(char *s1)
 
 int main()
 {
-    char str1[50] = "Suhel Mulla";
+    char str1[50] = "Suhel Mulla, 19 June 1990";
     char str2[50] = "";
     char str3[50] = "Rozina";
     char str4[50] = "Kazi";
@@ -99,6 +131,8 @@ int main()
     printf("\n Length = %d", strlen((char*)str1));
     printf("\n Copied string = %s", strcpy(str2, str1));
     printf("\n Concatenated string = %s", strcat(str3, str4));
+    printf("\n Lowered string = %s", strlwr((char*)str1));
+    printf("\n Uppered string = %s", strupr((char*)str1));
     printf("\n Reversed string = %s", strrev((char *)str1));
 
     return 0;
